@@ -41,6 +41,8 @@ void Game::MainLoop()
 
   void Game::Start()
   {
+      rectangle->setFillColor(sf::Color::Red);
+      rectangle->setPosition(sf::Vector2f(300.f,500.f));
 
   }
 
