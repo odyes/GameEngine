@@ -1,10 +1,10 @@
-#include <iostream>
+#include<iostream>
+#include "Engine/Game.hh"
 
 int main()
 {
-    std::cout<<"hello sfml" <<std::endl;
-    std::cin.get();
-    return 0;
+  Game* game{new Game()};
+  game->Run();
 
+  return EXIT_SUCCESS;
 }
-
