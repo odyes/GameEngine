@@ -1,5 +1,7 @@
 #include "Engine/CommonHeaders.hh"
 
+sf::RectangleShape* rectangle{new sf::RectangleShape(sf::Vector2f(100.f, 100.f))};
+
 Game::Game()
 {
   window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_NAME);
@@ -36,29 +38,28 @@ void Game::MainLoop()
 
   void Game::Update()
   {
-
+    
   }
 
   void Game::Start()
   {
-      rectangle->setFillColor(sf::Color::Red);
-      rectangle->setPosition(sf::Vector2f(300.f,500.f));
-
+    rectangle->setFillColor(sf::Color::Red);
+    rectangle->setPosition(sf::Vector2f(300.f, 500.f));
   }
 
   void Game::Render()
   {
-    window->clear(sf::Color::Black); //agregar color a la pantalla
+    window->clear(sf::Color::Black);
     Draw();
-    window->display(); //Se limpia la pantalla
+    window->display();
   }
 
   void Game::Draw()
   {
-
+    window->draw(*rectangle);
   }
 
   void Game::InputHandle()
   {
-
+    rectangle->move(InputSystem::GetAxis());
   }
