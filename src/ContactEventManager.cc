@@ -2,8 +2,9 @@
 #include "GameObject.hh"
 #include<iostream>
 
-ContactEventManager::ContactEventManager()
+ContactEventManager::ContactEventManager(std::vector<GameObject*>*& gameObkectsDeleteList;)
 {
+   this->gameObkectsDeleteList = gameObkectsDeleteList;
 }
 
 ContactEventManager::~ContactEventManager()
@@ -19,7 +20,12 @@ void ContactEventManager::BeginContact(b2Contact *contact)
 
   if(goA && goB)
   {
-    std::cout << goA->GetTagName() << ", " << goB->GetTagName() << std::endl;
+    //std::cout << goA->GetTagName() << ", " << goB->GetTagName() << std::endl;
+    if(goB->GetTagName().compare("chest") == 0)
+    {
+      //std::cout << "Destroy chest" << std::endl;
+      gameObjectDeleteList->push_back(goB);
+    }
   }
 }
 void ContactEventManager::EndContact(b2Contact *contact)
