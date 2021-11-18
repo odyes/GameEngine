@@ -5,8 +5,8 @@
 class AudioClip
 {
 private:
-  sf::SoundBuffer* soundBufferStepsSfx{};
-  sf::Sound* soundSFXSteps{};
+  sf::SoundBuffer* soundBuffer{};
+  sf::Sound* sound{};
 
 public:
   AudioClip(const char* audioUrl, float volume);

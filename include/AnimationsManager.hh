@@ -16,4 +16,5 @@ public:
   Animation* GetAnimation(std::string animationName) const;
   void AddAnimation(std::string animationName, Animation* animation);
   void Play(std::string animationName);
+  void Update(float& deltaTime);
 };
